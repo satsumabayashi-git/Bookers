@@ -1,13 +1,18 @@
 <h1>Books</h1>
 
-<%= @books.each do |book| %>
-  <p>title</p>
-  <span><%= book.title %>
+<p>Title  Body</P>
+<% @books.each do |book| %>
+  <p>
+  <span class="book-title"><%= book.title %></span>
+  <span class="book-body"><%= book.body %></span>
+  <%= link_to "Show", book_path(book.id) %>
+  </p>
+  
 <% end %>
 
 <h1>New Book</h1>
 
-<%= form_with model: Book.new do |f| %>
+<%= form_with model: @book do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
 
